@@ -1,0 +1,144 @@
+<html>
+<head>
+  <script type="text/javascript" src="../vendor/jquery-1.8.2.js"></script>
+  <script type="text/javascript" src="../vendor/raphael.js"></script>
+  <script type="text/javascript" src="../lib/graffle.js"></script>
+  <script type="text/javascript" src="../lib/graph.js"></script>
+  <script type="text/javascript" src="../lib/dist_vect.js"></script>
+  <script type="text/javascript" src="algorithms.js"></script>
+  <script src="../js/jquery-ui.min.js"></script>
+  <script src="../js/jquery.mousewheel-min.js"></script>
+  <script src="../js/jquery.terminal-min.js"></script>
+  <script src="../js/term.js"></script>
+  <script src="../js/jquery.tooltipster.js"></script>
+  <script src="../js/jquery.tooltipster.min.js"></script>
+  <script src="../js/pnotify.custom.min.js"></script>
+  <link href="../css/dv.css" rel="stylesheet"/>
+  <link href="../css/jquery.terminal.css" rel="stylesheet"/>
+  <link href="../css/pnotify.custom.min.css" rel="stylesheet"/>
+  <link href="../css/animate.css" rel="stylesheet"/>
+  <link href="../css/tooltipster.css" rel="stylesheet"/>
+</head>
+
+<body style="margin:0;padding:0;">
+  <table align="center">
+    <tr>
+      <td width="1435px">
+        <table class="title" width=100% border="0">
+          <tr>
+            <td>
+              <th> Distance Vector Simulator</th>
+            </td>
+            <td>
+              <div class="nav">
+                <ul>
+                  <li>
+                      <input type="text" value="Username" name="user" id="user"
+                       onblur="if (this.value == '') {this.value = 'Username';}"
+                       onfocus="if (this.value == 'Username') {this.value = '';}" />
+                       <input type="password" value="Password" name="passw" id="passw"
+                       onblur="if (this.value == '') {this.value = 'Password';}"
+                       onfocus="if (this.value == 'Password') {this.value = '';}" />
+                       <input type="submit" value="Login">
+                       <input type="submit" value="Register">
+                   </li>
+                 </ul>
+               </div>
+             </td>
+           </tr>
+         </table>
+         <div style="padding-bottom:5px"></div>
+         <div class="table">
+           <div class="left">
+             <div id="canvas" style="height: 475px; width: 628px; border:2px solid #A03741; background-color:#FFFAEF"></div>
+
+
+           </div>
+           <div class="right">
+             <div>
+               <div id="tablearea" style="height: 485px; overflow: auto"> </div>
+             </div>
+           </div>
+         </div>
+         <table class="sectable" width="1435px" align=right>
+           <tr>
+             <td valign="top">
+               <table class="infotable" align=left>
+                 <tr>
+                   <td align="left">
+                     <div  class="tooltip" title="Automate exchanging of messages between nodes in set time intervals.">
+                       <button id="autobutton" class="button button_primary" onclick="autoMode();">Auto &#8635;</button>
+                     </div>
+                   </td>
+                   <td align=left>
+                     <div  class="tooltip" title="Send next message in queue between nodes immediately.">
+                       <button class="button button_primary" onclick="updateTable();">Step &#10174;</button>
+                     </div>
+                   </td>
+                   <td class="infobox" width="150px" align=center>
+                     <div  class="tooltip" title="Total number of currently active nodes.">
+                       <div id="nodeinfo"></div>
+                     </div>
+                   </td>
+                   <td class="seqbox" width="325px" padding-right="10px">
+                     <div  class="tooltip" title="Source and Destination of current message being sent between nodes.">
+                       <div id="sequences"></div>
+                     </div>
+                   </td>
+                 </tr>
+                 <tr>
+                   <td colspan="4">
+                   </td>
+                 </tr>
+                 <tr>
+                   <td class="presets" colspan="2">
+                     <div  class="tooltip" title="Available example topologies based on number of nodes.">
+                       Preset Topology
+                     </div>
+                     <hr class="hrline">
+                     <table class="pnodes">
+                       <tr>
+                         <td>
+                           <a href="?nodes=3">3</a>
+                         </td>
+                         <td>
+                           <a href="?nodes=4">4</a>
+                         </td>
+                         <td>
+                           <a href="?nodes=5">5</a>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td>
+                           <a href="?nodes=6">6</a>
+                         </td>
+                         <td>
+                           <a href="?nodes=7">7</a>
+                         </td>
+                         <td>
+                           <a href="?nodes=8">8</a>
+                         </td>
+                       </tr>
+                     </table>
+                   </td>
+                   <td class="presets" colspan="2">
+                     Custom Topology
+                     <hr class="hrline">
+                     <br>
+                     <div class="alert"> &#9888; You must be signed in to use custom topologies!</div>
+                   </td>
+                 </tr>
+               </table>
+             </td>
+             <td class="termbox" width=775px>
+               <div id="terminal"></div>
+             </td>
+           </tr>
+         </table>
+       </td>
+     </tr>
+   </table>
+
+
+ </body>
+ </html>
